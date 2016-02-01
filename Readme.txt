@@ -1,0 +1,1 @@
+This is the represotory of the utilities of the future project which consists of foladers for each mini project. the first one is Solar_PV_Adoption.
