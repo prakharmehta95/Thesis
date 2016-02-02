@@ -1,1 +1,1 @@
-This is the repository of the utilities of the future project which consists of folders for each mini project. The first one is Solar_PV_Adoption.
+This is the repository of the utilities of the future main project. There will be several mini projects within the main project and each mini project has a spicific folder. The first mini project is Solar_PV_Adoption.
