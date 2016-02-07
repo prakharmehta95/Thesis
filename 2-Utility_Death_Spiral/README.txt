@@ -6,3 +6,10 @@ This version includes some additions to the previous versions . To run the model
 3- click Run 
 4- the results will be created as an Excel file in the folder "results"
 5- the name of the Excel file will be  Results_mdy_HMS.xlsx, where "mdy_HMS" is the date and time at which the file was created
+
+
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ Copyright KAPSARC. Open Source MIT License.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

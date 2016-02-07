@@ -7,3 +7,8 @@ Electricity sales from incumbent utilities are experiencing downward pressure as
 To begin investigating this phenomenon and its potential implications, KAPSARC developed the Residential Solar PV Adoption Model. The purpose of the model is to describe the adoption over time of residential PV under realistic assumptions regarding consumer behavior. In particular, the model takes into account electricity prices, levelized costs of PV, contagion effects of PV adoption, and the type of residence and whether it is suitable for PV.
 
 Note, to run the model, simply click on the Nelogo file "Residential Solar PV Adoption.nlogo". It should download the file in your pc. Then, open the Netlogo software. From there you can go to file-open and choose the file you just downloaded. At the interface and info tabes you should find detailed information on how to run the model.
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ Copyright KAPSARC. Open Source MIT License.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
