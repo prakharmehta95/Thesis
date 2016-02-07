@@ -67,8 +67,9 @@ Finally, *ne* is the neighborhood effect (a positive number, neighborhood-effect
 Chai, D.W.H., Adlakha, S., Low, S.H., De Martini, P., Chandy, K.M. Impact of residential PV adoption on retail electricity rates. (2013). Energy Policy 62, pp. 830-843. 
 ###HOW TO CITE 
 If you mention this model in a publication, we ask that you include these citations for the model itself and for the NetLogo software: 
-•	Bean, Patrick, Fuentes, Rolando, Kimbrough, Steven O., and Muaafa, Mohammed, Residential Solar PV Adoption model, version 1.0. (2015) File: Residential Solar PV Adoption Model.nlogo 
-•	Wilensky, U. (1999). NetLogo. http://ccl.northwestern.edu/netlogo/. Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL. 
+
+Bean, Patrick, Fuentes, Rolando, Kimbrough, Steven O., and Muaafa, Mohammed, Residential Solar PV Adoption model, version 1.0, KAPSARC (2015) File: Residential Solar PV Adoption Model.nlogo 
+
 
 > **Note:** to run the model, simply click on the Nelogo file "Residential Solar PV Adoption.nlogo". It should download the file in your pc. Then, open the Netlogo software. From there you can go to file-open and choose the file you just downloaded. At the interface and info tabs you should find detailed information on how to run the model.
 
