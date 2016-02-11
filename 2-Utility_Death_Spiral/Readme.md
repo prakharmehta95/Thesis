@@ -28,38 +28,6 @@ Key inputs for the model are the number of buildings, their corresponding roofto
 The model treats each building as a single agent, with the logistic curve providing the probability that the building owner chooses to add solar (given electricity price, solar system cost, and neighborhood effect). Thus, the model is a stochastic simulation with specific real buildings randomly adding PV. The model increments time in discrete, annual steps over the course of a 20-year time horizon.  We chose this horizon because that is the lifespan of a solar panel. A consumer makes a choice of adding solar or not in each year. (We assume that once a building has installed rooftop PV it remains in place for the duration of the simulation, and no new installation is possible.) Other model outputs include hourly electricity demand, the number of rooftop PV installations, PV capacity, and PV electricity generation and net electricity demand. 
 Adoption decisions proceed in two stages. First, buildings adopt PV panels depending on the payback period for a PV investment. (The payback period incorporates both installation cost and an imputed benefit from the neighborhood effect.) 
 
-The Solar PV Adoption model for Cambridge processes the following files at initialization:
-
-Hourly_Demand_PB_20150616.xlsx
-Hourly Solar Output.xlsx 
-roof_distribution.xlsx 
-roofCatDist.csv 
-buildings_data.csv 
-neighDict.p  
-
-(1) Hourly_Demand_PB_20150616.xlsx gives the electric power demands in   kilowatts on an hourly basis for a representative year for 19 categories of   buildings as located in a Boston-like environment.  
-
-(2) Hourly Solar Output.xlsx gives the solar output of a solar PV installation  in the Boston area in watts on an hourly basis for a representative year.  There are three tabs, for 2kW, 4kW, and 6kW installations.  
-
-(3) roof_distribution.xlsx has two kinds of data. First, it specifies  7 categories of building, based on roof size:  
-Group minimum roof size	Group maximum roof size 
-0				1000 
-1000			2000 
-2000			4000 
-4000			10000 
-10000			25000 
-25000			50000 
-50000			1000000 
-
-We ID these as types 0, 1, 2, 3, 4, 5, and 6.  
-
-Second, the file specifies for each type/category (the 7 above) a probability  distribution over the 19 building types. Thus, for example, if a building’s  roof is type 1 and so ranges from 1000 to 2000 square feet, then the given  probability that the building has the demand profile of a small house is  0.25, a medium house, 0.37, and so on.  
-
-(4) roofCatDist.csv is a CSV file for mapping from a building type (one of the  7 indicated in the roof_distribution.xlsx file, above) to a probability  distribution for adopting 2, 4, or 6 kW solar PV installations.  
-
-(5) buildings_data.csv was derived from the Cambridge shapefile.  It is a CSV file  with two columns per row and 13454 rows, one for each building. The first  value in a row is the building ID and the second value is the building’s  roof area in square meters.  
-
-(6) neighDict.p is a Python pickle file that when loaded produces a Python  dictionary in which the keys are building IDs and the values are lists of  building IDs, which lists constitute the neighbors of the building whose ID  is the key. Every building is considered to be a neighbor of itself, so the  key is in every list of neighbors. The data were produced by ArcGIS, saved  to a file, and processed by Python into neighDict.p.
 
 
 #### Initialization
