@@ -5,5 +5,5 @@ Recall that we have two models: A dynamic model in which prices change annually 
 
 
 ```
- Copyright KAPSARC. Open source MIT License.
+ Copyright © KAPSARC. Open source MIT License.
 ```

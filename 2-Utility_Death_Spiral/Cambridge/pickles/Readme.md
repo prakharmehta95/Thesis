@@ -17,5 +17,5 @@ This file contains prosumer data created by solar_pv_init.py and is updated by d
 
 
 ```
- Copyright KAPSARC. Open source MIT License.
+ Copyright © KAPSARC. Open source MIT License.
 ```

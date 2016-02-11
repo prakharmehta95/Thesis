@@ -41,5 +41,5 @@ Initialization is accomplished by execution of a stand-alone Python program, sol
 There are two versions of the main program, as noted above. The solar_pv_.py version is for modeling and exploration in Python alone,
 
 ```
- Copyright KAPSARC. Open source MIT License.
+ Copyright © KAPSARC. Open source MIT License.
 ```

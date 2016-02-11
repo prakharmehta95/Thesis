@@ -34,5 +34,5 @@ We ID these as types 0, 1, 2, 3, 4, 5, and 6.
 It is a CSV file with two columns per row and 13454 rows, one for each building. The first value in a row is the building ID and the second value is the building’s roof area in square meters.
 
 ```
- Copyright KAPSARC. Open source MIT License.
+ Copyright © KAPSARC. Open source MIT License.
 ```
