@@ -10,6 +10,8 @@ The Solar PV Adoption model for Cambridge processes the following files at initi
 (1) Hourly_Demand_PB.xlsx gives the electric power demands in  kilowatts on an hourly basis for a representative year for 19 categories of  buildings as located in a Boston-like environment.
 
 (2) Hourly Solar Output.xlsx gives the solar output of a solar PV installation in the Boston area in watts on an hourly basis for a representative year. There are five tabs, for 2kW, 4kW, 6kW, 25 and 75 installations and there are 4 orientations (South, SouthWest, West, SouthEast)
+Each PV option has an hourly electricity generation profile based on its characteristics and a typical meteorological year in the analyzed location. The generation profiles come from the NREL’s PVWatts Calculator (NREL, 2015) as applied to the 19 different types of buildings represented in the model and matched to the buildings in Cambridge and Lancaster.  
+
 
 (3) roofCategory.xlsx specifies 7 categories of building, based on roof size:
 
