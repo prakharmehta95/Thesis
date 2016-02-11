@@ -1,4 +1,4 @@
-The Solar PV Adoption model for Cambridge processes the following files at initialization:
+The Solar PV Adoption model for Lancaster processes the following files at initialization:
 
 - Hourly Solar Output.xlsx (5 capacities and 4 orientations)
 - Hourly_Demand_PB.xlsx
