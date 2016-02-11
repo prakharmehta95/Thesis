@@ -32,15 +32,13 @@ Adoption decisions proceed in two stages. First, buildings adopt PV panels depen
 
 #### Initialization
 
-Initialization is accomplished by execution of a stand-alone Python program, solar_py_cambridge_init.py.  It imports solarpvlib.py for some class and function definitions and processes the 6 data files described in the previous section. Its output consists of two Python pickle files: prosumers.p and cambridgeData.p. cambridgeData.p is a pickling/serialization of a single object of class dataForRun. prosumers.p is a pickled list of prosumer objects (of the prosumer class), one for each building in the model.
+Initialization is accomplished by execution of a stand-alone Python program, solar_py_init.py.  It imports defining_classes.py for some class and function definitions and processes the files in data folder. Its output consists of two Python pickle files: prosumers.p and BuildingData.p stored in the data folder. BuildingData.p is a pickling/serialization of a single object of class dataForRun. prosumers.p is a pickled list of prosumer objects (of the prosumer class), one for each building in the model.
 
 
 #### Main Program
 
 
-There are two versions of the main program, as noted above. The solar_pv_cambridge.py version is for modeling and exploration in Python alone, outside of ArcGIS. The solar_pv_cambridge_gis.py version is to be run from within ArcGIS. In general, it is probably easier to run outside of ArcGIS because (1) the user can write code that does multiple runs, (2) the user can otherwise modify the code and data, and (3) the user doesn’t need to be running on a Windows machine with an ArcGIS active license present.
-
-
+There are two versions of the main program, as noted above. The solar_pv_.py version is for modeling and exploration in Python alone,
 
 ```
  Copyright KAPSARC. Open source MIT License.

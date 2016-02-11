@@ -1,10 +1,7 @@
 
-This version includes some additions to the previous versions . To run the model, simply do the following:
-1- open the main.py file. "The main file calls the folder Cambridge or Lancaster depending on the city typed in Main.py file. Each of folders contains 3 Pytnon files: (1) defining_classes.py to define prosumer and RunData classes, (2) solar_pv_init.py to create the prosumer and buildingData pickles, and (3) solar_pv.py is to run the model."
-2- calibrate the parameters located at the very begining of the code
-3- click Run 
-4- the results will be created as an Excel file in the folder "results"
-5- the name of the Excel file will be  Results_mdy_HMS.xlsx, where "mdy_HMS" is the date and time at which the file was created.
+Initialization is accomplished by execution of a stand-alone Python program, **solar_py_init.py**.  It imports **defining_classes.py** for some class and function definitions and processes the files in data folder. Its output consists of two Python pickle files: prosumers.p and BuildingData.p stored in the data folder. BuildingData.p is a pickling/serialization of a single object of class dataForRun. prosumers.p is a pickled list of prosumer objects (of the prosumer class), one for each building in the model.
+
+
 
 
 ```
