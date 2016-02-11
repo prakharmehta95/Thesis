@@ -1,5 +1,5 @@
 
-The dumps all the results into this folder
+The model dumps simulation results into this folder
 
 
 ```
