@@ -6,5 +6,5 @@ The Utilities of the Future project focuses on how technological disruptions fro
 This is a repository for the utilities of the future main project within of which there will be several mini projects. Each mini project has a separate folder that includes the source code and other extra materials. Our first mini project is called **Residential_PV_Adoption** in which a model for solar adoption was built in **Netlogo**. The model describes the adoption over time of residential PV under realistic assumptions regarding consumer behavior. The second mini project is called **Utility Death Spiral** in which we employed an ABM approach ,codded in **Python**, and data from two case studies to examine the extent to which solar photovoltaic penetration can erode utility revenues and undercut the traditional financial model of power companies, leading to a so-called “death spiral” of the utility business. The third model is still under development.
 
 ```
- Copyright KAPSARC. Open source MIT License.
+ Copyright © KAPSARC. Open source MIT License.
 ```
