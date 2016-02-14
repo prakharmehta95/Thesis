@@ -1,6 +1,6 @@
 This folder includes three files:
 ```
-> **Note** : The .p extension indicates that this is a Python pickle file. This is a binary format. 
+> **Note:** The .p extension indicates that this is a Python pickle file. This is a binary format. 
 ```
 
 
