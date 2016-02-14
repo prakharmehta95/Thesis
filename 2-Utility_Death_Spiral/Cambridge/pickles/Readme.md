@@ -1,4 +1,4 @@
-This folder includes three files:
+This folder includes the following three files:
 
 > **Note:** The .p extension indicates that this is a Python pickle file. This is a binary format. 
 
@@ -16,7 +16,7 @@ data set and the values are lists of neighbors, where a neighbor is indicated by
 
 3- **prosumers.p**
 
-This file contains prosumer data created by solar_pv_init.py and is updated by doit function to include prosumers who adopt solar at every tick. 
+This file contains prosumer data created by **solar_pv_init.py** and is updated by **doit** function located in **main_static.py** (or **main_dynamic.py**) to include prosumers who adopt solar at every tick. 
 
 
 
