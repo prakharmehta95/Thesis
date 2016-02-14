@@ -1,44 +1,40 @@
 
 ####Purpose 
 
-The purpose of the model is to describe the adoption over time of  solar PV under the assumption of residence, size of PV installation, and contagion effects of existing installations. It is assumed that customers adopt probabilistically, depending upon these various conditions
+Rooftop solar photovoltaic (PV for short) is a small-scale technology that can be adopted by a large portion of a power company’s customers. In this model, we examine the extent to which rooftop PV penetration can erode utilities’ revenues and undercut the traditional financial model of power companies, leading to a so-called **death spiral** of the utility business.
+The model is an **agent-based** model (ABM) that simulates the **adoption of rooftop PV panels** by buildings depending on **perceived payback period** for their investment, given **PV costs** and **utility electricity prices**. The perceived payback period is influenced by a **contagion effect** that depends on the number of panels installed in their geographical vicinity. Our agent-based model allows us to estimate not only the size of the effect, but the rate at which customer adoption affects the revenues of the utilities. 
 
 ####Basic Story 
 Time proceeds discretely. At the start of each episode a price schedule for electric power is announced. Also, a cost schedule for solar PV is announced. Eligible (to install PV) customers are those who do not already have solar PV installed. During the episode eligible customers adopt solar PV with a probability depending upon the price of electric power from the utility, the cost of solar power, and the prevalence of solar adopters in the neighborhood. Depending upon the number of adoptions, and possibly external factors, the utility updates its price schedule for electric power, effective at the start of the next period. 
 
-####Using the model
-
-The model comes in two versions: a dynamic price model "Main_Dynamic.py" and a static price model "Main_Static.py".  and which are intended to run as stand-alone analysis programs. The first one is 
-
-To run the model, simply do the following:
-
-The former file is intended to use the Cambridge data but to run as a stand-alone analysis program. 
-
-Two other files come with the Python implementation: solar_pv_cambridge_init.py initializes the datasets used directly by solar_pv_cambridge.py and solar_pv_cambridge_gis.py, and solarpvlib.py, which contains class definitions and function definitions used by the three other programs.
-
-
-1- open the main.py file. "The main file calls the folder Cambridge or Lancaster depending on the city typed in Main.py file. Each of folders contains 3 Pytnon files: (1) defining_classes.py to define prosumer and RunData classes, (2) solar_pv_init.py to create the prosumer and buildingData pickles, and (3) solar_pv.py is to run the model."
-2- calibrate the parameters located at the very begining of the code
-3- click Run 
-4- the results will be created as an Excel file in the folder "results"
-5- the name of the Excel file will be  Results_mdy_HMS.xlsx, where "mdy_HMS" is the date and time at which the file was created.
-
 #### Data Input Files
-Key inputs for the model are the number of buildings, their corresponding rooftop areas, and their locations. The sizes of buildings are used to determine both their electricity demand profiles and their ability to install PV panels. Their locations are used to determine contagion effects: agents with neighbors having PV are more likely to adopt PV. PV adoption in the model is a function of the economics of PV investments, and a neighborhood effect instrumented to be converted to PV cost reductions. 
-The model treats each building as a single agent, with the logistic curve providing the probability that the building owner chooses to add solar (given electricity price, solar system cost, and neighborhood effect). Thus, the model is a stochastic simulation with specific real buildings randomly adding PV. The model increments time in discrete, annual steps over the course of a 20-year time horizon.  We chose this horizon because that is the lifespan of a solar panel. A consumer makes a choice of adding solar or not in each year. (We assume that once a building has installed rooftop PV it remains in place for the duration of the simulation, and no new installation is possible.) Other model outputs include hourly electricity demand, the number of rooftop PV installations, PV capacity, and PV electricity generation and net electricity demand. 
-Adoption decisions proceed in two stages. First, buildings adopt PV panels depending on the payback period for a PV investment. (The payback period incorporates both installation cost and an imputed benefit from the neighborhood effect.) 
 
+Key inputs for the model (From **GIS**) are the **number of buildings**, their corresponding **rooftop sizes**, and their **locations**. The sizes of buildings are used to determine both their **electricity demand** profiles and their ability to install PV panels. Their locations are used to determine contagion effects: agents with neighbors having PV are more likely to adopt PV. PV adoption in the model is a function of the economics of PV investments, and a neighborhood effect instrumented to be converted to PV cost reductions. 
 
-
-#### Initialization
-
-Initialization is accomplished by execution of a stand-alone Python program, solar_py_init.py.  It imports defining_classes.py for some class and function definitions and processes the files in data folder. Its output consists of two Python pickle files: prosumers.p and BuildingData.p stored in the data folder. BuildingData.p is a pickling/serialization of a single object of class dataForRun. prosumers.p is a pickled list of prosumer objects (of the prosumer class), one for each building in the model.
+The model requires also inputting a retail electricity price ($/KWh), the installed cost for rooftop PV ($/watt), PV capacity factor (%), and a neighborhood effect (a percent discount of PV costs). Each PV option has an hourly electricity generation profile based on its characteristics and a typical meteorological year in the analyzed location. The generation profiles come from the NREL’s PVWatts Calculator (NREL, 2015) as applied to the 19 different types of buildings represented in the model and matched to the buildings in Cambridge and Lancaster
 
 
 #### Main Program
 
+The model treats each building as a single agent, with the logistic curve providing the probability that the building owner chooses to add solar (given electricity price, solar system cost, and neighborhood effect). The model increments time in discrete, annual steps over the course of a 20-year time horizon.  We chose this horizon because that is the lifespan of a solar panel. A consumer makes a choice of adding solar or not in each yeardepending on the payback period for a PV investment and a mirrored logistic function(refere to the main docment for more details).We assume that once a building has installed rooftop PV it remains in place for the duration of the simulation, and no new installation is possible. Other model outputs include hourly electricity demand, the number of rooftop PV installations, PV capacity, and PV electricity generation and net electricity demand. 
+The model is implemented in Python with ArcGIS visualization and is a template we designed to be modified as appropriate for other locations and data sets beyond Cambridge and Lancaster. The model comes in two versions: a dynamic price model "Main_Dynamic.py" and a static price model "Main_Static.py" which are intended to run as stand-alone analysis programs. 
 
-There are two versions of the main program, as noted above. The solar_pv_.py version is for modeling and exploration in Python alone,
+The model simulates the utility death spiral as follows. We assume the utility has an annual revenue requirement, F, for recovery of fixed costs and allowed profits. The electricity price in any single year is F + V, where V is the generation cost. We assume that in year 0, at initialization, F = total demand * $0.08 = F0 = total demand * PrF0. This constitutes the revenue requirement in each year for the utility to avoid a death spiral, i.e., for the utility to continue to be able to retire its investment costs and obtain its promised profits. The retail price in a given year is PrFt + PrV, with PrV set to be constant as PrV = initial price – PrF0. Solar additions decrease the sales of electricity by the amount they generate in each year. 
+#### Initialization
+
+Initialization is accomplished by execution of a stand-alone Python program, solar_py_init.py.  It imports defining_classes.py for some class and function definitions and processes the files in data folder. Its output consists of two Python pickle files: prosumers.p and BuildingData.p stored in the data folder. BuildingData.p is a pickling/serialization of a single object of class dataForRun. prosumers.p is a pickled list of prosumer objects (of the prosumer class), one for each building in the model.
+
+##Running the model
+To run the model, simply do the following:
+
+1- Open either of the main files ("Main_Dynamic.py" or "Main_Static.py". 
+2- Type the city you want to run the model for (Cambridge or Lancaster). The main file calls the corresponding folder  Cambridge or Lancaster. Each folder contains 3 Pytnon files: (1) defining_classes.py to define prosumer and RunData classes, (2) solar_pv_init.py to create the prosumer and buildingData pickles, and (3) solar_pv.py is to run the model."
+2- calibrate the parameters located at the very begining of the code
+3- click Run 
+4- the results will be created as an Excel file in the folder "results"
+5- the name of the Excel file will be Results_mdy_HMS.xlsx, where "mdy_HMS" is the date and time at which the file was created.
+
+
 
 ```
  Copyright © KAPSARC. Open source MIT License.
