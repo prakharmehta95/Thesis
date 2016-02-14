@@ -23,7 +23,7 @@ The model is implemented in **Python** with **ArcGIS** visualization and is a te
 
 #### Initialization
 
-Initialization is accomplished by execution of a stand-alone Python program, solar_py_init.py.  It imports defining_classes.py for some class and function definitions and processes the files in data folder. Its output consists of two Python pickle files: prosumers.p and BuildingData.p stored in the data folder. BuildingData.p is a pickling/serialization of a single object of class dataForRun. prosumers.p is a pickled list of prosumer objects (of the prosumer class), one for each building in the model.
+Initialization is accomplished by execution of a stand-alone Python program in each city folder, solar_py_init.py. It imports, from the **pickles** folder, defining_classes.py for some class and function definitions and also processes the files in the **data** folder. Its output consists of two Python pickle files stored in the **pickles** folder: prosumers.p and BuildingData.p. The file BuildingData.p is a pickling/serialization of a single object of class dataForRun. The file prosumers.p is a pickled list of prosumer objects (of the prosumer class), one for each building in the model.
 
 ##Running the model
 To run the model, simply do the following:
