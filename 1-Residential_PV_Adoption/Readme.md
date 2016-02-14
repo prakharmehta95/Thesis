@@ -72,6 +72,5 @@ Bean, Patrick, Fuentes, Rolando, Kimbrough, Steven O., and Muaafa, Mohammed, Res
 
 
 > **Note:** to run the model, simply click on the Nelogo file "Residential Solar PV Adoption.nlogo". It should download the file in your pc. Then, open the Netlogo software. From there you can go to file-open and choose the file you just downloaded. At the interface and info tabs you should find detailed information on how to run the model.
-----------
 
 > Copyright © [KAPSARC](https://www.kapsarc.org/). Open source [MIT License](http://opensource.org/licenses/MIT).
