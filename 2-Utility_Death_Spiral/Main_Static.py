@@ -6,6 +6,7 @@ else: cap_fac=.20 # The city is Lancaster,CA
 #this part is to calibrate the model parameters:
 ticks_to_run =20
 RunsPerScenario=50
+''' here to choose between a single value for each parameter or a range of values for sensitivity analysis'''
 #electricity_price_list=[.15] 
 #solar_PV_cost_list=[4000] #  the total up-front (initial) investment cost 
 #neighborhood_effect_list=[0.15]

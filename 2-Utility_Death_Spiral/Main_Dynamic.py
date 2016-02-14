@@ -22,7 +22,7 @@ import numpy as np
 import xlsxwriter
 import time
 import pickle
-#import solar_pv_init # To set up the city buildings types
+import solar_pv_init # To set up the city buildings types
 import solar_pv_dynamic as solar_pv
 runData = pickle.load(open('pickles/buildingData.p','rb'))
 Run=0
