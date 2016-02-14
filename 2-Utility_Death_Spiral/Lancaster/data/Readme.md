@@ -1,4 +1,4 @@
-The Solar PV Adoption model for Cambridge processes the following files at initialization:
+The Solar PV Adoption model for Lancaster processes the following files at initialization:
 
 (1) **Hourly_Demand_PB.xlsx** gives the electric power demands in  kilowatts on an hourly basis for a representative year for 19 categories of  buildings as located in a Boston-like environment.
 
