@@ -25,11 +25,11 @@ The model is implemented in **Python** with **ArcGIS** visualization and is a te
 
 Initialization is accomplished by execution of a stand-alone Python program in each city folder, solar_py_init.py. It imports, from the **pickles** folder, defining_classes.py for some class and function definitions and also processes the files in the **data** folder. Its output consists of two Python pickle files stored in the **pickles** folder: prosumers.p and BuildingData.p. The file BuildingData.p is a pickling/serialization of a single object of class dataForRun. The file prosumers.p is a pickled list of prosumer objects (of the prosumer class), one for each building in the model.
 
-##Running the model
+#### Running the model
 To run the model, simply do the following:
 
 - Open on of the main files "Main_Dynamic.py" or "Main_Static.py". 
-- Type the city you want to run the model for (Cambridge or Lancaster). The main file calls the corresponding city folder. Each folder contains 3 Pytnon files: (1) defining_classes.py to define prosumer and RunData classes, (2) solar_pv_init.py to create the prosumer and buildingData pickles, and (3) solar_pv.py is to run the model."
+- Type the city you want to run the model for (Cambridge or Lancaster). The main file calls the corresponding city folder. Each folder contains 3 Pytnon files: - (1) defining_classes.py to define prosumer and RunData classes, - (2) solar_pv_init.py to create the prosumer and buildingData pickles, and - (3) solar_pv.py is to run the model."
 - Calibrate the parameters located at the very begining of the code (PV cost, Electricity price, neighbor effect). The paprameters could be single values or a range of values.
 - Click Run 
 - The results will be created as an Excel file in the folder "results". the name of the Excel file will be Results_mdy_HMS.xlsx, where "mdy_HMS" is the date and time at which the file was created.
