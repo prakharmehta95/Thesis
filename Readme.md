@@ -13,5 +13,5 @@ If you would like to contribute to the project, please contact us at uof@kapsarc
 
 ----------
 ```
- Copyright © KAPSARC. Open source MIT License.
+ Copyright © [KAPSARC](https://www.kapsarc.org/). Open source [MIT License](http://opensource.org/licenses/MIT).
 ```
