@@ -39,6 +39,5 @@ To run the model, simply do the following:
 
 
 
-```
- Copyright © KAPSARC. Open source MIT License.
-```
+----------
+> Copyright © [KAPSARC](https://www.kapsarc.org/). Open source [MIT License](http://opensource.org/licenses/MIT).

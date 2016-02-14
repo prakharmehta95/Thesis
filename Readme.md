@@ -8,7 +8,6 @@ This is a repository for the utilities of the future main project within of whic
 ----------
 Utilities of the Future is released under The MIT License. For details, see the following URLs: [http://opensource.org/](http://opensource.org/) and [http://opensource.org/licenses/MIT] (http://opensource.org/licenses/MIT).
 
-----------
 If you would like to contribute to the project, please contact us at uof@kapsarc.org.
 
 ----------

@@ -19,7 +19,5 @@ data set and the values are lists of neighbors, where a neighbor is indicated by
 This file contains prosumer data created by **solar_pv_init.py** and is updated by **doit** function located in **solar_pv_static.py** (or **solar_pv_dynamic.py**) to include prosumers who adopt solar at every tick. 
 
 
-
-```
- Copyright © KAPSARC. Open source MIT License.
-```
+----------
+> Copyright © [KAPSARC](https://www.kapsarc.org/). Open source [MIT License](http://opensource.org/licenses/MIT).

@@ -7,6 +7,5 @@ The Initialization process is accomplished by execution of a stand-alone Python 
 The results of the simulation are stored in the **results** folder. 
 
 
-```
- Copyright © KAPSARC. Open source MIT License.
-```
+----------
+> Copyright © [KAPSARC](https://www.kapsarc.org/). Open source [MIT License](http://opensource.org/licenses/MIT).

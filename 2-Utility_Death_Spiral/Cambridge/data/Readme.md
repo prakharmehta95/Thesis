@@ -14,6 +14,5 @@ Each PV option has an hourly electricity generation profile based on its charact
 
 (6) **buildings_data.csv** was derived from the **GIS** shapefile. It is a CSV file with two columns per row and 13454 rows, one for each building. The first value in a row is the building ID and the second value is the building’s roof area in square meters.
 
-```
- Copyright © KAPSARC. Open source MIT License.
-```
+----------
+> Copyright © [KAPSARC](https://www.kapsarc.org/). Open source [MIT License](http://opensource.org/licenses/MIT).
