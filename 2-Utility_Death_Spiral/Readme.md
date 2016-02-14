@@ -1,3 +1,6 @@
+Can Adoption of Rooftop Solar PV Panels Trigger a Utility Death Spiral? A Tale of Two Cities
+===================
+#####by Iqbal Adjali, Patrick Bean, Rolando Fuentes, Steven Kimbrough, Mohammed Muaafa, Frederic Murphy, Michele Vittorio, Ben Wise, and Weinan Zheng
 
 ####Purpose 
 
