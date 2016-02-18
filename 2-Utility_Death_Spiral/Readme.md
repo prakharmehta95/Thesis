@@ -34,7 +34,7 @@ To run the model, simply do the following:
 - Open on of the main files "Main_Dynamic.py" or "Main_Static.py".
 - Select the appropriate directory where this folder is located 
 - Type the city you want to run the model for (Cambridge or Lancaster). The main file calls the corresponding city folder. Each folder contains 3 Pytnon files: (1) defining_classes.py to define prosumer and RunData classes, (2) solar_pv_init.py to create the prosumer and buildingData pickles, and (3) solar_pv.py is to simulate the adoption over 20 years.
-- Calibrate the parameters located at the very begining of the code (time horizon, number of riblications per scenario, PV cost, Electricity price, neighbor effect, k, and L-scale).
+- Calibrate the parameters located at the very begining of the code (time horizon, number of replications per scenario, PV cost, Electricity price, neighbor effect, k, and L-scale).
 - Click Run 
 - The results will be created as Excel files inside the **results** folder. An Excl file for every replication of each scenario will be generated. So, if you select 50 Runs_Per_Scenario and a total of 100 scenarios, 5000 Excel file will be generated **plus** an Excel file that summarizes all the results will be also generated. The name of each Excel file will be Results_mdy_HMS.xlsx, where "mdy_HMS" is the date and time at which the file was created.
 

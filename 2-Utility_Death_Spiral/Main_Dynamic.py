@@ -1,20 +1,21 @@
 '''This Model is for which city? (Cambridge, MA or Lancaster,CA?)'''
-city = 'Cambridge'
+city = 'Lancaster'
 #to determine the capacity factor
 if city == 'Cambridge': cap_fac=.15 
 else: cap_fac=.20 # The city is Lancaster,CA
 #this part is to calibrate the model parameters:
-ticks_to_run =20
-RunsPerScenario=1
+ticks_to_run =20 # by default this is a 20 year horizon
+RunsPerScenario=50 # to replicate every scenario X times so to examin variations
 F0 = 0.08
+''' here to choose between a single value for each parameter or a range of values for sensitivity analysis'''
 electricity_price_list=[.17] 
-solar_PV_cost_list=[4000] #  the total up-front (initial) investment cost 
+solar_PV_cost_list=[1] #  the total up-front (initial) investment cost 
 neighborhood_effect_list=[0.15]
 #electricity_price_list=[.12, .13,.14,.15,.16,.17,.18,.19,.20,.21] 
 #solar_PV_cost_list=[3000, 3500, 4000, 4500] #  the total up-front (initial) investment cost 
 #neighborhood_effect_list=[0.1, 0.12, 0.15, 0.18, 0.2]
-k=0.3
-l_scale=1
+k=0.3 #this value effects the shape of the logistic curve (refer to the documentation for more info.)
+l_scale=1 #this value also effects the shape of the logistic curve (refer to the documentation for more info.)
 #%%
 import os
 os.chdir('%s'%city) # to set the dirctory following the name of the city.
@@ -31,12 +32,13 @@ for initial_price in electricity_price_list:
         for solar_PV_cost in solar_PV_cost_list:
              for loop in range(RunsPerScenario):   #To perform multiple runs for each scenario        
                 Run+=1
+                #reload(solar_pv_init) #refresh the module to examine variations between the city                   
                 prosumers = pickle.load(open('pickles/prosumers.p','rb')) #to reset prosumers in each run
                 #To call doit function and run the model
                 (per_yr_stat,installed_solar_building_Type_dic, prosumers_updated, RRFC)=solar_pv.doit(
                        ticks_to_run, prosumers, runData, initial_price, F0, solar_PV_cost, cap_fac, neighborhood_effect, k, l_scale)
                 # Write the results to a pickle file
-                pickle.dump(prosumers_updated,open('results/pickles/prosumers_%s.p'%time.strftime("%m%d%y_%H%M%S"),'wb'),protocol=1)
+                #pickle.dump(prosumers_updated,open('results/pickles/prosumers_%s.p'%time.strftime("%m%d%y_%H%M%S"),'wb'),protocol=1)
 #%%
     #This part generates the first output Excel file
                 timestr = time.strftime("%m%d%y_%H%M%S") #to insert time and date in the file name
