@@ -5,11 +5,11 @@ if city == 'Cambridge': cap_fac=.15
 else: cap_fac=.20 # The city is Lancaster,CA
 #this part is to calibrate the model parameters:
 ticks_to_run =20 # by default this is a 20 year horizon
-RunsPerScenario=50 # to replicate every scenario X times so to examin variations
+RunsPerScenario=5 # to replicate every scenario X times so to examin variations
 F0 = 0.08
 ''' here to choose between a single value for each parameter or a range of values for sensitivity analysis'''
 electricity_price_list=[.17] 
-solar_PV_cost_list=[1] #  the total up-front (initial) investment cost 
+solar_PV_cost_list=[3000] #  the total up-front (initial) investment cost 
 neighborhood_effect_list=[0.15]
 #electricity_price_list=[.12, .13,.14,.15,.16,.17,.18,.19,.20,.21] 
 #solar_PV_cost_list=[3000, 3500, 4000, 4500] #  the total up-front (initial) investment cost 

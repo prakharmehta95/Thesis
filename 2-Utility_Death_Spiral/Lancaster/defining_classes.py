@@ -1,9 +1,12 @@
 
 #%%
+# __init__ is for initialisation
+# self is to access the attributes and methods of the class
 class dataForRun():
     def __init__(self,solarProduction,buildingCategories,
                  hourlyDemands,hourlyDemandsLabels,neighborsDict,
                  roofCategoriesDict,roofCategoryBuildingType):
+        #initialisation:
         self.solarProduction = solarProduction
         self.buildingCategories = buildingCategories
         self.annualSolarProduction = sum(self.solarProduction)
@@ -14,6 +17,8 @@ class dataForRun():
         self.roofCategoriesDict = roofCategoriesDict
         self.roofCategoryBuildingType = roofCategoryBuildingType
 #%%
+        #initialisation
+        #what more/different can I use? = building ID will be different; income will come in, 
 class prosumer():
     '''
     Contains all key prosumer data for the Solar PV model:
