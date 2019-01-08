@@ -119,6 +119,9 @@ solarProduction = np.zeros((8760,len(solarTypes))) #8769 hours in a year
 for i,j in enumerate(solarTypes):
     solarProduction[:,i]=np.genfromtxt("data/Hourly Solar Output %s.csv"%j,dtype=float,
         delimiter=',',skip_header=1,skip_footer=1,usecols = 10)
+    #skip header because of the labels
+    #skip footer because of the totals
+    #usecols - reads the first 11 columns
 
 #%%
 # (3) File: 'roofCategory.xlsx'
@@ -128,6 +131,7 @@ for i,j in enumerate(solarTypes):
 roofCat = pd.read_excel(open("data/roofCategory.xlsx","rb"))
 # Get the number of categories:
 category_count = len(roofCat.iloc[0:,0])
+
 # Make the category dictionary. Keys: category ID, an integer, 
 # values: (low, hi) tuples.)
 categoryDict = {}
@@ -136,7 +140,8 @@ for i in range(category_count):
     
 #%%
     
-# This information may not be necessary, but it's useful to have.    
+# This information may not be necessary, but it's useful to have.   
+#this is needed for my cae as well
 roofCategoryDictInfo = '''The roof category dictionary has keys that are integers
 and that start at 0. The categories are simply numbered and identified
 that way. Their values are (low, high) tuples that represent roof areas in
@@ -164,8 +169,9 @@ buildingCategoryCount = len(buildingCategories)
 roofCategoryBuildingType = np.array(rc_bt.iloc[:,1:])
 # Again: you can inspect the variables in the "Variable explorer" in 
 # Anaconda. Still, this is a check worth doing:
-#print("Should be all 1.0s:",roofCategoryBuildingMixes.sum(axis=1))
+#print("Should be all 1.0s:",roofCategoryBuildingType.sum(axis=1))
 #%%
+#I have no clue what this section does
 def in_range(value,range_tuple):
     '''
     Given a scalar value, value, and a tuple, range_tuple
@@ -182,6 +188,7 @@ def in_range(value,range_tuple):
 #%%
 def getRoofCat(roofArea):
     '''Function to determine your roof category from your roof size.'''
+    # ranges between 0-6
     category = None
     for i in categoryDict.keys():
         #print(i,flush=True)
@@ -202,6 +209,10 @@ def getBuildingType(roofArea):
     '''
     roofCategory = getRoofCat(roofArea)
     buildingMix = roofCategoryBuildingType[roofCategory,:]
+    #depending on the size of the roof, the roof category is defined which is used to define the building mix 
+    #i.e. the probability of the demand of the building being a small house/medium house/commercial building etc
+    #do not need to do this as we have definite information on the building type and it's demand
+    
     return drawFromDistriubtionArray(buildingMix)
 #%%
 # (5) File: 'roofCat_solarType_Dist.xlsx'
@@ -209,7 +220,10 @@ def getBuildingType(roofArea):
 # type (2, 4, 6 kW) given your roof category.
 roofPVDistDF = pd.read_excel(open("data/roofCat_solarType_Dist.xlsx","rb"))
 roofCat_pvSize_dist = np.array(roofPVDistDF.iloc[:,1:],dtype='float')
+#these are the same arrays except for one column at the beginning
 #%%
+#returns cumulative values (probabilities) from whatever is passed through it
+#don't clearly understand how it is used
 def drawFromDistriubtionArray(distributionArray):
     '''
     Given distributionArray, which should be a vector, that is an m by 1 or
@@ -217,7 +231,7 @@ def drawFromDistriubtionArray(distributionArray):
     associated cumulative distribution and returns random draw from it.
     '''
     cumDist = distributionArray.cumsum()
-    draw = np.random.random()
+    draw = np.random.random() #random number generator
     previous = -1.0
     for i in range(len(cumDist)):
         if draw > previous and draw <= cumDist[i]:
@@ -230,14 +244,23 @@ def getSolarType(roofArea):
     '''
     Finds the solar type (2, 4, 6 kW coded as 0, 1, or 2) 
     of a building with roof area roofArea. Does this
-    by getting the roof category of the building from its roofAra,
-    then retrieving the PV size distribution vecgor from 
+    by getting the roof category of the building from its roofArea,
+    then retrieving the PV size distribution vector from 
     roofCat_pvSize_dist, and drawing a random deviate (a size) from its
     cumulative.
     '''
     roofCategory = getRoofCat(roofArea)
     distVector = roofCat_pvSize_dist[roofCategory]
     return drawFromDistriubtionArray(distVector)
+#%%
+def explanationtomyself():
+   '''
+   we know the building type, rooftop size, demands --> we do not need to do this probabilistic distribution for
+   getting building demands and PV system sizes
+   We can make a probabilistic distribution only for the choice of the size of PV system as that will still depend on the decision
+   Or rather that also depends on the decision making process - let it be defined by the variety of factors like cost, peer effects?
+   '''
+
 #%%
 # (6) File: 'buildings_data.csv'
 def makeProsumers():
@@ -246,8 +269,8 @@ def makeProsumers():
     reading in the buildings_data.csv file and making it a dictionary.
     Returns a list of prosumer objects.
     '''
-    prosumers = []
-    raDict = {}
+    prosumers = [] #list
+    raDict = {} #dict
     f = open('data/buildings_data.csv','r')
     line = f.readline()
     while line:
