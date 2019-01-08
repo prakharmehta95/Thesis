@@ -8,7 +8,7 @@ ticks_to_run =20 # by default this is a 20 year horizon
 RunsPerScenario=50 # to replicate every scenario X times so to examin variations
 F0 = 0.08
 ''' here to choose between a single value for each parameter or a range of values for sensitivity analysis'''
-electricity_price_list=[.17] 
+electricity_price_list=[.12,.17] 
 solar_PV_cost_list=[1] #  the total up-front (initial) investment cost 
 neighborhood_effect_list=[0.15]
 #electricity_price_list=[.12, .13,.14,.15,.16,.17,.18,.19,.20,.21] 
@@ -40,6 +40,8 @@ for initial_price in electricity_price_list:
                 # Write the results to a pickle file
                 #pickle.dump(prosumers_updated,open('results/pickles/prosumers_%s.p'%time.strftime("%m%d%y_%H%M%S"),'wb'),protocol=1)
 #%%
+                '''WRITING RESULTS'''
+                
     #This part generates the first output Excel file
                 timestr = time.strftime("%m%d%y_%H%M%S") #to insert time and date in the file name
                 wb=xlsxwriter.Workbook('results/Results_%s.xlsx'%timestr) 
@@ -115,7 +117,7 @@ for initial_price in electricity_price_list:
                     parameters_2. append(parameter_2_values)
                 else: parameters_2. append(parameter_2_values)
     #End of the runs        
-            #print("Results successfully generated :)")
+                print("Results successfully generated :)")
 #%%
 #This part generates the second output Excel file
 wb2=xlsxwriter.Workbook('results/Totals_%s.xlsx'%timestr) 
