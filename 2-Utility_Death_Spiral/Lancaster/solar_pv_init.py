@@ -121,7 +121,7 @@ for i,j in enumerate(solarTypes):
         delimiter=',',skip_header=1,skip_footer=1,usecols = 10)
     #skip header because of the labels
     #skip footer because of the totals
-    #usecols - reads the first 11 columns
+    #usecols - reads the first eleven columns
 
 #%%
 # (3) File: 'roofCategory.xlsx'
@@ -301,6 +301,7 @@ buildingData = defining_classes.dataForRun(solarProduction,
                            buildingCategories,hourlyDemands,
                            hourlyDemandsLabels,neighborsDict,
                            categoryDict,roofCategoryBuildingType)
+#this buildingData pickle is called as runData in the main code
 #%%
 # Conclude by writing the dataForRun object to a pickle file for use
 # by the main program.

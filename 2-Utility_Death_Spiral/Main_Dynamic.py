@@ -1,3 +1,5 @@
+#setting parameters in this section
+
 '''This Model is for which city? (Cambridge, MA or Lancaster,CA?)'''
 city = 'Lancaster'
 #to determine the capacity factor
@@ -6,15 +8,13 @@ else: cap_fac=.20 # The city is Lancaster,CA
 #this part is to calibrate the model parameters:
 ticks_to_run =20 # by default this is a 20 year horizon
 RunsPerScenario=5 # to replicate every scenario X times so to examin variations
-F0 = 0.08
+F0 = 0.08 #seems like the fixed price component of the electricity price
 ''' here to choose between a single value for each parameter or a range of values for sensitivity analysis'''
-<<<<<<< HEAD
-electricity_price_list=[.12,.17] 
+#<<<<<<< HEAD
+electricity_price_list=[.17] 
 solar_PV_cost_list=[1] #  the total up-front (initial) investment cost 
-=======
 electricity_price_list=[.17] 
 solar_PV_cost_list=[3000] #  the total up-front (initial) investment cost 
->>>>>>> 11979295e3b37bb6183134b4046f6e3362850d64
 neighborhood_effect_list=[0.15]
 #electricity_price_list=[.12, .13,.14,.15,.16,.17,.18,.19,.20,.21] 
 #solar_PV_cost_list=[3000, 3500, 4000, 4500] #  the total up-front (initial) investment cost 
@@ -46,7 +46,8 @@ for initial_price in electricity_price_list:
                 #pickle.dump(prosumers_updated,open('results/pickles/prosumers_%s.p'%time.strftime("%m%d%y_%H%M%S"),'wb'),protocol=1)
 #%%
                 '''WRITING RESULTS'''
-                
+    #can do this in a better way...
+            
     #This part generates the first output Excel file
                 timestr = time.strftime("%m%d%y_%H%M%S") #to insert time and date in the file name
                 wb=xlsxwriter.Workbook('results/Results_%s.xlsx'%timestr) 

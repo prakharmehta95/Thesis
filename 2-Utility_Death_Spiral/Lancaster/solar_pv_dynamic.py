@@ -14,17 +14,26 @@ def neighbors_with_solar(neighbor_list, prosumers):
     fractionOfNeighborsWithSolar= neighborsWithSolar*1.0 / len(neighbor_list)*1.0
     return fractionOfNeighborsWithSolar
 #%%
+    #runData is building data
+    #adoption process is purely economic and peer effect translated to economics, nothing else
+    #could try and include technical criteria like minimal system size (for individuals too but especially for community)
+    #maybe other criteria like attitude level? (also depends on neighbors, money, return on investment, general environmental awareness etc) 
+    #this goes on the lines of TPB
+    #use of relative agreement models like Varun Rai used?
 def go(current_price, prosumers, runData, solar_PV_cost, cap_fac, neighborhood_effect, k, l_scale):
     '''This function performs the PV adoption decision process for all prosumers'''
     for prosumer in prosumers:
         if not prosumer.hasSolar:        
             fractionOfNeighborsWithSolar = neighbors_with_solar(runData.neighborsDict[prosumer.ID], prosumers)
             ne = neighborhood_effect * fractionOfNeighborsWithSolar #adjust neighborhood effect as function of penetration level
+            #neighbourhood effect is simply a price reduction
             x = (solar_PV_cost*(1-ne)) / (8760*cap_fac*current_price) #Payback period
+            #the value of this logistic function is 
             simple_mirrored_logistic = 1.0 - (l_scale / (1 + np.exp(-k*x)))
             if np.random.random() <= simple_mirrored_logistic:
                 prosumer.gettingSolar = True
 #%%
+                #won't need it, take directly from CEA data
 def getDemandForYear(prosumers, runData):
     '''This function adds up the hourly demand to get the yearly one '''    
     demand = 0
@@ -32,6 +41,7 @@ def getDemandForYear(prosumers, runData):
         demand += runData.annualHourlyDemands[prosumer.buildingType]
     return demand
 #%%
+    #CEA already gives us this though in another file
 def getSolarSupplyForYear(prosumers, runData):
     ''' This function adds up the hourly production to get the yearly one '''  
     supply = 0
@@ -55,6 +65,7 @@ def getSolarCapacity(solarType):
     else: capacity =75
     return capacity
 #%%  Here is to calculate PV cost in every year given the decline is 5.9% to yr 6, 0.95% to yr 14, 0.675 to yr 20  
+    #could  take it the same way or change the numbers for every year/evry few years
 def SolarCost(solar_PV_cost,ticks_to_run,tick):
     cost= [solar_PV_cost for j in range (ticks_to_run)]    
     for year in range(ticks_to_run):
@@ -84,7 +95,7 @@ def doit(ticks_to_run, prosumers, runData, initial_price, F0, solar_PV_cost, cap
     totalSupply = 0
     netDemand=totalDemand-totalSupply
     current_price = initial_price
-    RRFC=[0 for x in range(ticks_to_run)] #Required Revenue to recover fixed cost every year
+    RRFC=[0 for x in range(ticks_to_run)] #Required Revenue to recover fixed cost every year - all zeros to begin with 
     for tick in range(ticks_to_run):
         go(current_price, prosumers, runData, SolarCost(solar_PV_cost,ticks_to_run,tick), cap_fac, neighborhood_effect, k, l_scale) #done with adoption 
         #here to do some statistics        
