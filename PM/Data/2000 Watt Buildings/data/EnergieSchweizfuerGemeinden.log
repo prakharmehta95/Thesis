@@ -1,0 +1,52 @@
+reading script c:\tools\interlis\igcheck2\user\script\igcheck\interlis2.cfg ...
+
+***********************************
+*                                 *
+* iG/Check for INTERLIS 2         *
+*                                 *
+* Version 2018.0.224 (31.05.2018) *
+*                                 *
+* (c) infoGrips 1997-2018         *
+*                                 *
+***********************************
+
+***********************************
+* License Information:            *
+* iG/Check for INTERLIS 2         *
+* WORLD WIDE SINGLE USER LICENSE  *
+* ICS Kernel Version 2018.0/32bit *
+***********************************
+
+License file: c:\tools\interlis\igcheck2\user\license\igcheck2.lic
+
+input : R:\Prod\GIS\02 Geodaten BFE\EnergieSchweiz_fuer_Gemeinden\02_FME_Produktion_INTERLIS\EnergieSchweizfuerGemeinden.xtf
+date  : 15.1.2019
+time  : 15:24:07
+
+area check is on
+unique check is on
+cardinality check is on
+mandatory constraint check is on
+tag order check is on
+empty attrtags check is on
+external ref check is on
+charset check is on
+arc radius check is off
+xgeom check is on
+catalogs check is on
+
+============================================================================================================
+checking basket EnergieSchweizfuerGemeinden_V1_1.EnergieSchweizfuerGemeinden bid=b001 ...
+============================================================================================================
+
+Object Statistics
+=================
+
+   30 objects in class EnergieSchweizfuerGemeinden.EnergieRegion
+    8 objects in class EnergieSchweizfuerGemeinden.EnergiestadtAufDemWeg2000Watt
+   26 objects in class EnergieSchweizfuerGemeinden.ZweitausendWattAreal
+  438 objects in class EnergieSchweizfuerGemeinden.Energiestadt
+
+completed with no errors
+completed with no warnings
+completed with no infos
